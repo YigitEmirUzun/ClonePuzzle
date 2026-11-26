@@ -41,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
     }
     void Start()
     {
+        Application.targetFrameRate = 60;
+
         Vector3Int cellPosition = grid.WorldToCell(transform.position);
         currentGridPos = new Vector2Int(cellPosition.x, cellPosition.y);
         transform.position = grid.GetCellCenterWorld(cellPosition);
@@ -82,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
                     levelManager.OnPlayerMove();
                     CreateClone();
                     isMoving = true;
-                    transform.DOMove(targetWorldPos, moveDuration).SetEase(Ease.InOutBounce).OnComplete(() =>
+                    transform.DOMove(targetWorldPos, moveDuration).SetEase(Ease.Linear).OnComplete(() =>
                     {
                         isMoving = false;
                         currentGridPos = targetPos;
