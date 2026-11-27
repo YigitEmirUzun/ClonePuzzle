@@ -7,6 +7,7 @@ public class FPSCounter : MonoBehaviour
 
     private float deltaTime;
 
+    // Görsel olarak FPS kontrolü
     void Update()
     {
         deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;

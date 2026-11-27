@@ -22,6 +22,7 @@ public class LevelManager : MonoBehaviour
     }
 
 
+    // Her Harekette çalýþan fonksiyon
     public void OnPlayerMove()
     {
         moveCount++;
@@ -36,6 +37,7 @@ public class LevelManager : MonoBehaviour
 
     }
 
+    // Karakterin bitiþ karesinde bulunup bulunmadýðýnýn kontrolü
     public void CheckWin(Vector2Int playerPosition)
     {
         Vector3Int cellPosition = new Vector3Int(playerPosition.x,playerPosition.y,0);
@@ -53,6 +55,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    // Hamle bittiðinde bölümü baþtan baþlatma (anýnda olmasýn diye 0.4 saniye delay)
     IEnumerator RestartRoutine()
     {
         yield return new WaitForSeconds(0.4f);
